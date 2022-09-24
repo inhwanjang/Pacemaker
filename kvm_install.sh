@@ -1,4 +1,12 @@
 #!/bin/bash
+myfunction(){
+read -p "continue ? [y/n] : " answer
+case $answer in
+  [y]* ) bash ./nodecreate.sh;;
+  [n]* ) echo "Bye";;
+  * ) echo " only y or n " &&  myfunction;;
+esac
+}
 touch /result
 cd /etc/sysconfig/network-scripts/
 cp ifcfg-ens33 ifcfg-ens33.backup
@@ -27,8 +35,4 @@ mkdir /VM
 mkdir /iso
 wget -P /iso/ http://mirror.navercorp.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.iso 
 echo "This is two node cluster configuration"
-read -p "continue ? : " answer
-if [ $answer == yes ];then
-bash ./nodecreate.sh
-
-fi
+myfunction
