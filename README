@@ -1,35 +1,22 @@
 # Pacemaker
 
-1. vmware workstation 16
-2. 2개의 VM ( KVM / IPMI_NODE )
-3. KVM - 3개의 VM( Two node cluster / Iscsi storage )
-4. IPMI_NODE - 
+# vmware workstation 16 
+# vmware workstation 16 ) vm machine 2개 ( kvm , ipmi_node ) install / centos 7.9 cpu check / memory 8GB / cpu core / GUI
+# kvm vm ) KVM (libvirt) install 
+# kvm vm ) vbmc install
+# ipmi_node )
+# kvm vm ) vm machine create 3 (ha1 ha2 storage)
+# ha1 ) pacemaker create script
+# ha1 ) fence_ipmilan or fence_xvm
+# storage ) install Iscsi
+# ha1 , ha2 ) volume check , multipath
+# ha1 ) ha-lvm configure
+# ha1 ) resource 1 : apachewebserver
+# ha1 ) resource 2 : apachetomcat
+# ha1 ) resource 3 : ping
+# ha1 ) resource 4 : LVM
+# ha1 ) resource 5 : FileSystem
+# ha1 ) resource 6 : oracle
 
 
 
-
-KVM Folder is kvm install , node create ...
-
-
-# how to configure Pacemaker
-# CentOS 7.9 install + GUI
-# KVM (libvirt) install 
-# vbmc install
-# Two node cluster configuration
-# fence_ipmilan
-# ha-lvm
-# resource 1 : apachewebserver
-# resource 2 : apachetomcat
-# resource 3 : ping
-# resource 4 : LVM
-# resource 5 : FileSystem
-# resource 6 : oracle
-
-
-node 생성 후에 안에서 작업 할 방법이 없음
-
-노드별로 ip변경
-
-storage에 디스크 추가 + 네트워크 카드 추가
-
-노드별 cd추가
