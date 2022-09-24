@@ -29,8 +29,7 @@ After = libvirtd.service
 After = syslog.target
 After = network.target
 Description = vbmc service
-"
->> /etc/systemd/system/vbmcd.service
+">> /etc/systemd/system/vbmcd.service
 
 systemctl daemon-reload && systemctl start vbmcd 
 systemctl enable vbmcd
