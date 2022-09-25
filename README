@@ -2,13 +2,19 @@
 
 # vmware workstation 16 install 
 
-# vmware workstation 16 ) vm machine 2개 ( kvm , ipmi_node ) install / centos 7.9 cpu check / memory 8GB / cpu core / GUI
+# vmware workstation 16 ) vm machine 2개 ( kvm , vbmc) install / 
+
+# vmware workstation 16 ) kvm - centos 7.9 cpu check 가상화 / memory 8GB / cpu core / GUI / DISK 100GB
+
+# vmware workstaiton 16 ) vbmc - centos 7.9 최소설치 / memory 1GB / disk 15GB
+
+# 
 
 # kvm vm ) KVM (libvirt) install
 
-# ipmi_node ) vbmc install
+# vbmc ) vbmc install
 
-# ipmi_node ) setting
+# vbmc ) setting
 
 # kvm vm ) vm machine create 3 (ha1 ha2 storage)
 
