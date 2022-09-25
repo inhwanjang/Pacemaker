@@ -3,6 +3,13 @@ yum -y install python3 python3-pip libvirt-devel gcc python3-devel ipmitool
 pip3 install -U pip
 pip3 install virtualbmc
 
+
+
+
+
+
+
+:<<'END'
 touch /etc/systemd/system/vbmcd.service
 echo "[Install]
 WantedBy = multi-user.target
@@ -36,5 +43,5 @@ chmod 600 /etc/systemd/system/vbmcd.service
 systemctl daemon-reload && systemctl start vbmcd 
 systemctl enable vbmcd
 systemctl status vbmcd
-
+END
 ## process running error: rm -rf /root/.vbmc/master.pid
