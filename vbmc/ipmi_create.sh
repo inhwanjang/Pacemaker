@@ -14,7 +14,7 @@ read -p "host1's port1 : " port1
 
 read -p "host2 : " host2
 read -p "host2's port2 : " port2
-
+vbmcd
 
 
 vbmc add --username $username --password $password --port $port1 --libvirt-uri qemu+ssh://root@$host/system $host1
