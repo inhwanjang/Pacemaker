@@ -1,12 +1,11 @@
-If you want to use it on a real server , run install.sh
-
+=========================
 High Availability cluster
-If you want to test in a virtual environment, run install_vm.sh
-
-=======================================================
-
+=========================
+hello!
 We are going to configure ha-lvm on a two-node cluster and create Apache, Tomcat and Oracle resources.
 
+If you want to use it on a real server , run install.sh
+If you want to test in a virtual environment, run install_vm.sh
 
 
 ======================================================
