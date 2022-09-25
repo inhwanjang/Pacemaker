@@ -1,5 +1,7 @@
 #!/bin/bash
-yum -y install centos-release-openstack-train && yum -y install python2-virtualbmc
+yum -y install python3 python3-pip libvirt-devel gcc python3-devel ipmitool
+pip3 install -U pip
+pip3 install virtualbmc
 
 touch /etc/systemd/system/vbmcd.service
 echo "[Install]
