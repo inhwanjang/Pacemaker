@@ -1,41 +1,49 @@
+If you want to use it on a real server , run install.sh
+
 High Availability cluster
+If you want to test in a virtual environment, run install_vm.sh
+
+=======================================================
+
+We are going to configure ha-lvm on a two-node cluster and create Apache, Tomcat and Oracle resources.
+
+
+
+======================================================
+Real server condition
+=====================
+2 real server 
+CentOS7.9
 Pacemaker
 2 node cluster
 fence_ipmilan
 ha-lvm
 apache / tomcat / oracle / 
+==========================
+
+Test in a virtual environment condition
+=======================================
+vmware workstation 16
+2 vm ( kvm / vbmc )
+Pacemaker
+2 node cluster
+kvm - centos 7.9 / 램 8GB / Cpu가상화 체크 / GUI환경 / disk 100GB
+vbmc - centos 7.9 최소설치 / 램 1GB / disk 15GB
+kvm - libvirt 설치 및 vm머신 3개 생성 (ha1/ha2/storage)
+vbmc - vbmc 인스톨 및 셋팅
+ha1 - ha생성
+ha1 - fence_ipmilan 
+storage - iscsi 생성
+ha1 , ha2 - 볼륨확인 및 멀티패스
+ha1 - LVM 설정 
+ha1 - LVM resource
+ha1 - Filesystem resource
+ha1 - ping resource
+ha1 - apache webserver
+ha1 - apache tomcat
+ha1 - oracle
 
 
-##practice
-1. Vmware Workstaiton 16 설치
-2. 2개의 가상 머신 설치 (kvm , vbmc)
-3. kvm - centos 7.9 / 램 8GB / Cpu가상화 체크 / GUI환경 / disk 100GB
-4. vbmc - centos 7.9 최소설치 / 램 1GB / disk 15GB
-5. kvm - libvirt 설치 및 vm머신 3개 생성 (ha1/ha2/storage)
-6. vbmc - vbmc 인스톨 및 셋팅
-7. ha1 - ha생성
-8. ha1 - fence_ipmilan 
-9. storage - iscsi 생성
-10. ha1 , ha2 - 볼륨확인 및 멀티패스
-11. ha1 - LVM 설정 
-12. ha1 - LVM resource
-13. ha1 - Filesystem resource
-14. ha1 - ping resource
-15. ha1 - apache webserver
-16. ha1 - apache tomcat
-17. ha1 - oracle
-
-
-##real
-1. os install : CentOS 7.9 
-2. HA script
-3. fence_ipmilan
-4. 멀티패스
-5. ha-lvm
-6. ping resource
-7. apache webserver resource
-8. apache tomcat resource
-9. oracle resource
 
 
 
