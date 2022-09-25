@@ -1,28 +1,34 @@
-# Pacemaker
+High Availability cluster
+Pacemaker
+2 node cluster
+fence_ipmilan
+ha-lvm
+apache / tomcat / oracle / 
+
 
 ##practice
-# 1. Vmware Workstaiton 16 설치
-# 2. 2개의 가상 머신 설치 (kvm , vbmc)
-# 3. kvm - centos 7.9 / 램 8GB / Cpu가상화 체크 / GUI환경 / disk 100GB
-# 4. vbmc - centos 7.9 최소설치 / 램 1GB / disk 15GB
-# 5. kvm - libvirt 설치 및 vm머신 3개 생성 (ha1/ha2/storage)
-# 6. vbmc - vbmc 인스톨 및 셋팅
-# 7. ha1 - ha생성
-# 8. ha1 - fence_ipmilan 
-# 9. storage - iscsi 생성
-# 10. ha1 , ha2 - 볼륨확인 및 멀티패스
-# 11. ha1 - LVM 설정 
-# 12. ha1 - LVM resource
-# 13. ha1 - Filesystem resource
-# 14. ha1 - ping resource
-# 15. ha1 - apache webserver
-# 16. ha1 - apache tomcat
-# 17. ha1 - oracle
+1. Vmware Workstaiton 16 설치
+2. 2개의 가상 머신 설치 (kvm , vbmc)
+3. kvm - centos 7.9 / 램 8GB / Cpu가상화 체크 / GUI환경 / disk 100GB
+4. vbmc - centos 7.9 최소설치 / 램 1GB / disk 15GB
+5. kvm - libvirt 설치 및 vm머신 3개 생성 (ha1/ha2/storage)
+6. vbmc - vbmc 인스톨 및 셋팅
+7. ha1 - ha생성
+8. ha1 - fence_ipmilan 
+9. storage - iscsi 생성
+10. ha1 , ha2 - 볼륨확인 및 멀티패스
+11. ha1 - LVM 설정 
+12. ha1 - LVM resource
+13. ha1 - Filesystem resource
+14. ha1 - ping resource
+15. ha1 - apache webserver
+16. ha1 - apache tomcat
+17. ha1 - oracle
 
 
 ##real
-1. os install
-2. ha생성
+1. os install : CentOS 7.9 
+2. HA script
 3. fence_ipmilan
 4. 멀티패스
 5. ha-lvm
