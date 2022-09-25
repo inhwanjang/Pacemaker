@@ -46,21 +46,22 @@ systemctl status vbmcd
 END
 ## process running error: rm -rf /root/.vbmc/master.pid
 
-#!/bin/bash
+
 ssh-keygen -t rsa
 read -p "kvm ip : " ip
 read -p "kvm hostname : " host
+read -p "kvm password : " passwd
 echo "$ip $host " >> /etc/hosts
 
 ssh-copy-id root@$host
 
 
-read -p "username : " username
-read -p "password : " password
-read -p "host1 : " host1
+read -p "ipmi's username : " username
+read -p "ipmi's password : " password
+read -p "host1's name : " host1
 read -p "host1's port1 : " port1
 
-read -p "host2 : " host2
+read -p "host2's name : " host2
 read -p "host2's port2 : " port2
 vbmcd
 
