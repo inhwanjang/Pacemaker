@@ -1,2 +1,29 @@
+vbmc node
+kvm node
+ha1 node
+
+
+
+
+
 ipmi_node ) key_gen 생성
 ipmi_node ) 
+
+
+
+
+
+yum -y install net-tools
+netstat -anup 포트확인
+
+vbmc) firewall-cmd --permanent --add-port=6230/udp
+vbmc) firewall-cmd --permanent --add-port=6231/udp
+vbmc) firewall-cmd --reload
+
+
+
+ha1 ) vi /etc/hosts 192.168.0.50 vbmc
+ha2 ) vi /etc/hosts 192.168.0.50 vbmc
+ha1 ) ipmitool -I lanplus -p 6230 -Uadmin -Pdlatl00 -H vbmc chassis power status
+ha1 ) pcs stonith create fence_a fence_ipmilan pcmk_host_list="ha1.hb.com" ipaddr=192.168.0.50 ipport=6230 login='admin' passwd='dlatl00' lanplus=on auth=password delay=15 power_wait=20
+ha1 ) pcs stonith create fence_b fence_ipmilan pcmk_host_list="ha2.hb.com" ipaddr=192.168.0.50 ipport=6231 login='admin' passwd='dlatl00' lanplus=on auth=password power_wait=20
