@@ -1,5 +1,5 @@
 #!/bin/bash
 
-yum install -y pcs pacemaker corosync fence-agents-all
+yum install -y pcs fence-agents-ipmilan
 
 
