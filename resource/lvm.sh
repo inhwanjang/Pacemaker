@@ -1,6 +1,11 @@
 #!/bin/bash
 
 echo "LVM and Filesystem resource configuration"
+lvmconf --enable-halvm --services --startstopservices
+volumelist 수정
+dracut -H -f /boot/initramfs-$(uname -r).img $(uname -r)
+
+
 read -p "vgname: " vg
 read -p "lvname: " lv
 read -p "LVM resource name: " resource1
