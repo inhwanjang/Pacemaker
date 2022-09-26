@@ -1,6 +1,9 @@
 #!/bin/bash
 
 
+fdisk /dev/mapper/mpatha
+
+code 8e변경
 pvcreate /dev/mapper/mpatha1
 
 vgcreate data_vg /dev/mapper/mpatha1
