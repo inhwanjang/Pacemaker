@@ -1,15 +1,6 @@
 #!/bin/bash
 echo "Virtualmachine create"
 
-myfunction(){
-read -p "clone ? [y/n] : " answer
-case $answer in
-  [y]* ) read -p "how many clone? [number]" clone;;
-  [n]* ) echo "only one virtual machine create";;
-  * ) echo " only y or n " &&  myfunction;;
-esac
-}
-myfunction
 
 read -p "node name : " node
 virt-install --name $node --ram 2048 \
@@ -19,4 +10,5 @@ virt-install --name $node --ram 2048 \
 /iso/CentOS-7-x86_64-DVD-2009.iso \
 --extra-args 'console=ttyS0,115200n8 serial'
 
-virt-clone --original $node --name $node-2 --file /VM/$node-2.img 
+
+
