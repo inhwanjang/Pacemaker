@@ -3,45 +3,30 @@ High Availability cluster
 =========================
 hello!
 We are going to configure ha-lvm on a two-node cluster and create Apache, Tomcat and Oracle resources.
+======================================================================================================
+1. VMware Workstation 16 설치
+2. VM(KVM) CentOS7.9 / CPU Virtualize Intel VT-x/EPT or AMD-V/RVI check / 8GB RAM / 100GB DISK 
+3. KVM - libvirt 설치(kvm)
+4. KVM에 VM 1 개 설치 + clone으로 3개 추가 설치
+5. ha1 / ha2 / storage / vbmc
+6. ha1 , ha2 - nic 카드 추가 / storage - nic카드 , disk추가 / vbmc - 인스톨
+7. ha1, ha2 - 클러스터 구성
+8. ha1, ha2, vbmc - fence_ipmilan 구성
+9. ha1, ha2 , storage - iscsi / multipath 구성
+10. ha1, ha2 - LVM
+11. ha1, ha2 - LVM resource
+12. ha1, ha2 - Filesystem resource
+13. ha1, ha2 - ping resource
+14. ha1, ha2 - apache webserver resource
+15. ha1, ha2 - apache tomcat resource
+16. ha1, ha2 - oracle resource
 
-If you want to use it on a real server , run install.sh
-If you want to test in a virtual environment, run install_vm.sh
++ 기타 설정
 
 
-======================================================
-Real server condition
-=====================
-2 real server 
-CentOS7.9
-Pacemaker
-2 node cluster
-fence_ipmilan
-ha-lvm
-apache / tomcat / oracle / 
-==========================
-
-Test in a virtual environment condition
-=======================================
-vmware workstation 16
-2 vm ( kvm / vbmc )
-Pacemaker
-2 node cluster
-kvm - centos 7.9 / 램 8GB / Cpu가상화 체크 / GUI환경 / disk 100GB
-vbmc - centos 7.9 최소설치 / 램 1GB / disk 15GB
-kvm - libvirt 설치 및 vm머신 3개 생성 (ha1/ha2/storage)
-vbmc - vbmc 인스톨 및 셋팅
-ha1 - ha생성
-ha1 - fence_ipmilan 
-storage - iscsi 생성
-ha1 , ha2 - 볼륨확인 및 멀티패스
-ha1 - LVM 설정 
-ha1 - LVM resource
-ha1 - Filesystem resource
-ha1 - ping resource
-ha1 - apache webserver
-ha1 - apache tomcat
-ha1 - oracle
-
+location constraints - 자원이 실행될 수 있는 노드 결정
+order constraints - 자원이 실행 되는 순서 결정
+colocation constraints - 다른 자원에 상대적인 자원을 배치할 위치
 
 
 
