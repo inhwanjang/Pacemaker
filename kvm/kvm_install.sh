@@ -9,10 +9,13 @@ esac
 }
 touch /result
 cd /etc/sysconfig/network-scripts/
-cp ifcfg-ens33 ifcfg-ens33.backup
-echo "DEVICE=ens33" > ifcfg-ens33
-echo "ONBOOT=yes" >> ifcfg-ens33
-echo "BRIDGE=br0" >> ifcfg-ens33
+ls -al |grep -i ifcfg
+read -p "interface name : (don't write (ifcfg)" interface
+
+cp ifcfg-$interface ifcfg-$interface.backup
+echo "DEVICE=$interface" > ifcfg-$interface
+echo "ONBOOT=yes" >> ifcfg-$interface
+echo "BRIDGE=br0" >> ifcfg-$interface
 
 touch ifcfg-br0
 echo "TYPE=Bridge
