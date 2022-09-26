@@ -10,7 +10,7 @@ echo "create wwn=iqn.2022-09.com.example:servers" | targetcli
 echo "cd /iscsi/iqn.2022-09.com.example:servers/tpg1/acls" | targetcli
 echo "create wwn=iqn.2022-09.com.example:ha1.hb" | targetcli 
 echo "create wwn=iqn.2022-09.com.example:ha2.hb" | targetcli
-echo "cd /iscsi/iqn.2022-08.com.example:servers/tpgl/luns " | targetcli
+echo "cd /iscsi/iqn.2022-09.com.example:servers/tpg1/luns " | targetcli
 echo "create /backstores/block/vda1" | targetcli
 
 
