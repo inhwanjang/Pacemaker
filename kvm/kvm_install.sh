@@ -2,7 +2,7 @@
 myfunction(){
 read -p "continue ? [y/n] : " answer
 case $answer in
-  [y]* ) bash ./node_create.sh;;
+  [y]* ) ./node_create.sh;;
   [n]* ) echo "Bye";;
   * ) echo " only y or n " &&  myfunction;;
 esac
