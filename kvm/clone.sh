@@ -1,5 +1,12 @@
 #!/bin/bash
 
+read -p "original VM's name to copy : " original
+read -p "how many: " number
+
+
+
+
+
 myfunction(){
 read -p "clone ? [y/n] : " answer
 case $answer in
