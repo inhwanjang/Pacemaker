@@ -1,8 +1,11 @@
 #!/bin/bash
-echo " Two node cluster ..."
-echo "10seconds...if you won't that you pause ctrl + c"
-sleep 10;
+echo "Virtualmachine create"
+echo "You must answer y Y or n N"
 
+case $answer in
+  y,Y)
+  n,N)
+esac
 read -p "node name : " node
 virt-install --name $node --ram 2048 \
 --disk path=/VM/$node.img,size=15 --vcpus 1 \
