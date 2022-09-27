@@ -15,7 +15,7 @@ read -p "node1의 hostname: " host1
 read -p "node1의 Service IP: " ip3
 read -p "node2의 HB IP: " ip2
 read -p "node2의 hostname: " host2
-read -p "node2의 service IP: " ipv4
+read -p "node2의 service IP: " ip4
 read -p "vip : " vip
 #############################################################
 echo "keygen을 설정합니다."
@@ -34,8 +34,13 @@ echo "$ip1 $host1.hb" >> /etc/hosts
 echo "$ip2 $host2.hb" >> /etc/hosts 
 echo "$ip3 $host1" >> /etc/hosts
 echo "$ip4 $host2" >> /etc/hosts
-ssh root@$ip2 "echo "$ip1 $host1" >> /etc/hosts"
-ssh root@$ip2 "echo "$ip2 $host2" >> /etc/hosts"
+echo "$vip vip" >> /etc/hosts
+ssh root@$ip2 "echo "$ip1 $host1.hb" >> /etc/hosts"
+ssh root@$ip2 "echo "$ip2 $host2.hb" >> /etc/hosts"
+ssh root@$ip2 "echo "$ip3 $host1" >> /etc/hosts"
+ssh root@$ip2 "echo "$ip4 $host2" >> /etc/hosts"
+ssh root@$ip2 "echo "$vip vip" >> /etc/hosts"
+
 #############################################################
 clear
 #############################################################
