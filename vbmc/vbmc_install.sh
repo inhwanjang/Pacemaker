@@ -1,5 +1,5 @@
 #!/bin/bash
-yum -y install python3 python3-pip libvirt-devel gcc python3-devel ipmitool
+yum -y install python3 python3-pip libvirt-devel gcc python3-devel ipmitool net-tools
 pip3 install -U pip
 pip3 install virtualbmc
 
@@ -55,7 +55,7 @@ echo "$ip $host " >> /etc/hosts
 
 ssh-copy-id root@$host
 
-
+echo "ipmi's username -> irmc or ilo login ID "
 read -p "ipmi's username : " username
 read -p "ipmi's password : " password
 read -p "host1's name : " host1
