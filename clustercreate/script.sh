@@ -10,11 +10,13 @@ echo "HA 클러스터 구성 script"
 line
 #############################################################
 echo "사전 설정 진행합니다."
-read -p "node1의 IP: " ip1
+read -p "node1의 HB IP: " ip1
 read -p "node1의 hostname: " host1
-read -p "node2의 IP: " ip2
+read -p "node1의 Service IP: " ip3
+read -p "node2의 HB IP: " ip2
 read -p "node2의 hostname: " host2
-
+read -p "node2의 service IP: " ipv4
+read -p "vip : " vip
 #############################################################
 echo "keygen을 설정합니다."
 ssh_mkdir="mkdir ~/.ssh"
@@ -28,9 +30,10 @@ ssh root@$ip2 "$ssh_mkdir && $ssh_chmod && echo $key >> ~/.ssh/authorized_keys"
 
 #############################################################
 echo "hosts파일을 수정합니다."
-echo "$ip1 $host1" >> /etc/hosts 
-echo "$ip2 $host2" >> /etc/hosts 
-
+echo "$ip1 $host1.hb" >> /etc/hosts 
+echo "$ip2 $host2.hb" >> /etc/hosts 
+echo "$ip3 $host1" >> /etc/hosts
+echo "$ip4 $host2" >> /etc/hosts
 ssh root@$ip2 "echo "$ip1 $host1" >> /etc/hosts"
 ssh root@$ip2 "echo "$ip2 $host2" >> /etc/hosts"
 #############################################################
@@ -102,13 +105,13 @@ cat $script | ssh root@$ip2 "sh"
 
 #############################################################
 echo "클러스터 권한을 인증합니다."
-pcs cluster auth -u hacluster -p $num2 $host1 $host2
+pcs cluster auth -u hacluster -p $num2 "$host1.hb" "$host2.hb"
 #############################################################
 
 #############################################################
 echo "클러스터 구성"
 read -p "설정할 클러스터의 이름을 입력 하세요 : " name
-pcs cluster setup --start --name $name $host1 $host2
+pcs cluster setup --start --name $name "$host1.hb" "$host2.hb"
 #############################################################
 
 
