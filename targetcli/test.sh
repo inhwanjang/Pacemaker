@@ -1,6 +1,6 @@
 yum -y install targetcli
 
-
+fdisk /dev/vda
 
 echo "cd /backstores/block" | targetcli
 echo "create dev=/dev/vda1 name=vda1" | targetcli
