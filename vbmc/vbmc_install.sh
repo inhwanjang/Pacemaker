@@ -66,6 +66,10 @@ read -p "host2's port2 : " port2
 vbmcd
 
 
+firewall-cmd --permanent --add-port=$port1/udp
+firewall-cmd --permanent --add-port=$port2/udp
+firewall-cmd --reload
+
 vbmc add --username $username --password $password --port $port1 --libvirt-uri qemu+ssh://root@$host/system $host1
 vbmc add --username $username --password $password --port $port2 --libvirt-uri qemu+ssh://root@$host/system $host2
 
@@ -73,3 +77,8 @@ vbmc start $host1
 vbmc start $host2
 
 vbmc list
+
+
+netstat -anup |grep -i $port1
+netstat -anup |grep -i $port2
+
