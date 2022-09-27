@@ -27,7 +27,7 @@ We are going to configure ha-lvm on a two-node cluster and create Apache, Tomcat
 location constraints - 자원이 실행될 수 있는 노드 결정
 order constraints - 자원이 실행 되는 순서 결정
 colocation constraints - 다른 자원에 상대적인 자원을 배치할 위치
-
+clone option
 
 
 
