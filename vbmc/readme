@@ -1,19 +1,19 @@
+어떻게 구성하는가? 
+준비 : 
 vbmc node
 kvm node
 ha1 node
 
 
+vbmc ) net-tools , python3 python3-pip ,libvirt-devel ,gcc ,python3-devel, ipmitool
+vbmc ) virtualbmc install
+vbmc ) key_gen 생성
+vbmc ) kvm의 ip를 vbmc /etc/hosts에 등록
+vbmc ) ssh-copy-id 명령어로 kvm에 전송
+vbmc ) vbmc 에 클러스터 각 노드들 ipmi등록 
+vmbc ) 방화벽 포트 개방
 
 
-
-ipmi_node ) key_gen 생성
-ipmi_node ) 
-
-
-
-
-
-yum -y install net-tools
 netstat -anup 포트확인
 
 vbmc) firewall-cmd --permanent --add-port=6230/udp
